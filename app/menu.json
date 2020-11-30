@@ -1,0 +1,27 @@
+[
+	{
+		"Name" : "SIES Canteen",
+		"Rating" : 3.2,
+		"popular" : [
+			{
+				"name" : "Gulab Jamun",
+				"imageUrl" : " Some Random url Link",
+				"rating" : 5.0,
+				"price" : 2
+			},
+			{
+				"name" : "Ras Malai",
+				"imageUrl" : " Some Random url Link",
+				"rating" : 4.99,
+				"price" : 3
+			}
+		],
+		"Non Popular" : [
+			{
+				"Name" : "Cheese Pizza",
+				"imageUrl" : "Some Random url Link",
+				"Rating" : 0.0
+			}
+		]
+	}
+]

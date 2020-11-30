@@ -1,12 +1,9 @@
 package com.example.canto;
-
 import android.os.Bundle;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.canto.adapter.AllMenuAdapter;
 import com.example.canto.adapter.PopularAdapter;
 import com.example.canto.adapter.RecommendedAdapter;
@@ -15,28 +12,15 @@ import com.example.canto.model.Popular;
 import com.example.canto.model.Recommended;
 import com.example.canto.retrofit.ApiInterface;
 import com.example.canto.retrofit.FoodData;
-
 import java.util.List;
-
-import javax.security.auth.callback.Callback;
-
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Response;
 
+
 public class MainActivity extends AppCompatActivity {
-
-    /*@Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }*/
-}
-//public class MainActivity extends AppCompatActivity {
-
     ApiInterface apiInterface;
-
     RecyclerView popularRecyclerView, recommendedRecyclerView, allMenuRecyclerView;
-
     PopularAdapter popularAdapter;
     RecommendedAdapter recommendedAdapter;
     AllMenuAdapter allMenuAdapter;
@@ -49,20 +33,14 @@ public class MainActivity extends AppCompatActivity {
         apiInterface = RetrofitClient.getRetrofitInstance().create(ApiInterface.class);
 
         Call<List<FoodData>> call = apiInterface.getAllData();
+
         call.enqueue(new Callback<List<FoodData>>() {
             @Override
             public void onResponse(Call<List<FoodData>> call, Response<List<FoodData>> response) {
-
                 List<FoodData> foodDataList = response.body();
-
-
                 getPopularData(foodDataList.get(0).getPopular());
-
                 getRecommendedData(foodDataList.get(0).getRecommended());
-
                 getAllMenu(foodDataList.get(0).getAllmenu());
-
-
             }
 
             @Override
@@ -70,10 +48,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Server is not responding.", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
-
     }
 
     private void  getPopularData(List<Popular> popularList){
@@ -96,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void  getAllMenu(List<Allmenu> allmenuList){
+    private void getAllMenu(List<Allmenu> allmenuList){
 
         allMenuRecyclerView = findViewById(R.id.all_menu_recycler);
         allMenuAdapter = new AllMenuAdapter(this, allmenuList);
@@ -105,4 +79,5 @@ public class MainActivity extends AppCompatActivity {
         allMenuRecyclerView.setAdapter(allMenuAdapter);
         allMenuAdapter.notifyDataSetChanged();
 
-    }}
+    }
+}
