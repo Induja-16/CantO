@@ -33,12 +33,6 @@
       "price" : 35
     },
     {
-      "name" : "Gulab Jamun",
-      "imageUrl" : " Some Random url Link",
-      "rating" : 5.0,
-      "price" : 2
-    },
-    {
       "name" : "Cheese Sandwich",
       "imageUrl" : " Some Random url Link",
       "rating" : 4.6,
