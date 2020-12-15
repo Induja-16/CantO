@@ -1,32 +1,67 @@
+{
+  "Name" : "SIES Canteen",
+  "Rating" : 3.2,
+  "popular" : [
+    {
+      "name" : "Misal Pav",
+      "imageUrl" : " Some Random url Link",
+      "rating" : 4.0,
+      "price" : 75
+    },
+    {
+      "name" : "Samosa Chat",
+      "imageUrl" : " Some Random url Link",
+      "rating" : 3.7,
+      "price" : 50
+    },
+    {
+      "name" : "Masala Dosa",
+      "imageUrl" : " Some Random url Link",
+      "rating" : 4.0,
+      "price" : 40
+    },
+    {
+      "name" : "Mysore Masala Dosa",
+      "imageUrl" : " Some Random url Link",
+      "rating" : 4.2,
+      "price" : 60
+    },
+    {
+      "name" : "Chinese Bhel",
+      "imageUrl" : " Some Random url Link",
+      "rating" : 4.7,
+      "price" : 35
+    },
+    {
+      "name" : "Gulab Jamun",
+      "imageUrl" : " Some Random url Link",
+      "rating" : 5.0,
+      "price" : 2
+    },
+    {
+      "name" : "Cheese Sandwich",
+      "imageUrl" : " Some Random url Link",
+      "rating" : 4.6,
+      "price" : 30
+    },
+    {
+      "name" : "Poha",
+      "imageUrl" : " Some Random url Link",
+      "rating" : 5.0,
+      "price" : 25
+    },
+    {
+      "name" : "Chole Bhature",
+      "imageUrl" : " Some Random url Link",
+      "rating" : 4.3,
+      "price" : 50
+    },
+    {
+      "name" : "Fried Rice",
+      "imageUrl" : " Some Random url Link",
+      "rating" : 4.4,
+      "price" : 55
+    }
 
-  {
-    "Name" : "SIES Canteen",
-    "Rating" : 3.2,
-    "popular" : [
-      {
-        "name" : "Gulab Jamun",
-        "imageUrl" : " Some Random url Link",
-        "rating" : 5.0,
-        "price" : 2
-      },
-      {
-        "name" : "Ras Malai",
-        "imageUrl" : " Some Random url Link",
-        "rating" : 4.99,
-        "price" : 3
-      },
-      {
-        "name" : "Cheese Pizza",
-        "imageUrl" : "Some Random url Link",
-        "rating" : 3.0,
-        "price": 100
-      }
-    ],
-    "Non Popular" : [
-      {
-        "Name" : "Cheese Pizza",
-        "imageUrl" : "Some Random url Link",
-        "Rating" : 0.0
-      }
-    ]
-  }
+  ]
+}

@@ -1,24 +1,10 @@
-package com.example.canto.retrofit;
-import android.content.Context;
-import android.os.Build;
-
-import androidx.annotation.RequiresApi;
-
-import com.google.gson.JsonArray;
-
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+package com.example.canto.FoodDetails;
 
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 

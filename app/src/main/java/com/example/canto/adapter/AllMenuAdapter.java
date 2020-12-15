@@ -1,91 +1,56 @@
 package com.example.canto.adapter;
 
-
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.example.canto.FoodDetails;
+import com.example.canto.FoodDetails.Food;
 import com.example.canto.R;
-import com.example.canto.model.Allmenu;
 
 import java.util.List;
 
-public class AllMenuAdapter extends RecyclerView.Adapter<AllMenuAdapter.AllMenuViewHolder> {
-
+public class AllMenuAdapter extends RecyclerView.Adapter<AllMenuAdapter.MenuViewHolder> {
     Context context;
-    List<Allmenu> allmenuList;
+    List<Food> foodData;
+    public AllMenuAdapter(Context context, List<Food> foodData){
+        this.context=context;
+        this.foodData=foodData;
 
-    public AllMenuAdapter(Context context, List<Allmenu> allmenuList) {
-        this.context = context;
-        this.allmenuList = allmenuList;
     }
-
     @NonNull
     @Override
-    public AllMenuViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.allmenu_recycler_items, parent, false);
-
-        return new AllMenuViewHolder(view);
+    public MenuViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater layoutInflater = LayoutInflater.from(this.context);
+        View view = layoutInflater.inflate(R.layout.row,parent,false);
+        return new MenuViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AllMenuViewHolder holder, final int position) {
-
-        holder.allMenuName.setText(allmenuList.get(position).getName());
-        holder.allMenuPrice.setText("₹ "+allmenuList.get(position).getPrice());
-        holder.allMenuTime.setText(allmenuList.get(position).getDeliveryTime());
-        holder.allMenuRating.setText(allmenuList.get(position).getRating());
-        holder.allMenuCharges.setText(allmenuList.get(position).getDeliveryCharges());
-        holder.allMenuNote.setText(allmenuList.get(position).getNote());
-
-        Glide.with(context).load(allmenuList.get(position).getImageUrl()).into(holder.allMenuImage);
-
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(context, FoodDetails.class);
-                i.putExtra("name", allmenuList.get(position).getName());
-                i.putExtra("price", allmenuList.get(position).getPrice());
-                i.putExtra("rating", allmenuList.get(position).getRating());
-                i.putExtra("image", allmenuList.get(position).getImageUrl());
-
-                context.startActivity(i);
-            }
-        });
-
+    public void onBindViewHolder(@NonNull MenuViewHolder holder, int position) {
+        Food temp = foodData.get(position);
+        holder.title.setText(temp.getName());
+        holder.price.setText(temp.getPrice()+"");
+        holder.rating.setText(temp.getRating()+"");
     }
 
     @Override
     public int getItemCount() {
-        return allmenuList.size();
+        return foodData.size();
     }
 
-    public static class AllMenuViewHolder extends RecyclerView.ViewHolder{
-
-        TextView allMenuName, allMenuNote, allMenuRating, allMenuTime, allMenuCharges, allMenuPrice;
-        ImageView allMenuImage;
-
-        public AllMenuViewHolder(@NonNull View itemView) {
+    public class MenuViewHolder extends RecyclerView.ViewHolder {
+        TextView title, price, rating;
+        public MenuViewHolder(@NonNull View itemView) {
             super(itemView);
+            title = itemView.findViewById(R.id.title);
+            price = itemView.findViewById(R.id.name);
+            rating = itemView.findViewById(R.id.itemRating);
 
-            allMenuName = itemView.findViewById(R.id.all_menu_name);
-            allMenuNote = itemView.findViewById(R.id.all_menu_note);
-            //allMenuCharges = itemView.findViewById(R.id.all_menu_delivery_charge);
-            allMenuRating = itemView.findViewById(R.id.all_menu_rating);
-            allMenuTime = itemView.findViewById(R.id.all_menu_deliverytime);
-            allMenuPrice = itemView.findViewById(R.id.all_menu_price);
-            allMenuImage = itemView.findViewById(R.id.all_menu_image);
         }
     }
-
 }
